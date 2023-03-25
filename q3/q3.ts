@@ -45,7 +45,7 @@ class IsNullClause implements SQLClause {
 
     public write(): string {
         const notStr = this.not ? 'NOT ' : '';
-        return `${this.column.write()} ${notStr}IS NULL`;
+        return `${this.column.write()} IS ${notStr}NULL`;
     }
 }
 

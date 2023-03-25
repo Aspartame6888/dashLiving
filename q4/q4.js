@@ -1,5 +1,4 @@
 const https = require("https");
-const { resolve } = require("path");
 const querystring = require("querystring");
 
 const server = https.createServer((req, res) => {
@@ -20,27 +19,13 @@ const inputs = [
   "https://react.docschina.org/",
 ];
 
-let requests = 0;
-let responses = [];
-
-// const getContentLength = (input) => {
-//   https.get(input, (res) => {
-//     console.log(res.headers["content-length"]);
-//     responses.push(res);
-//     requests++;
-//     if (requests == inputs.length) {
-//       console.log(responses[1]);
-//     }
-//   });
-// };
-
 // implement getContentLength here
-// for (let i in inputs) {
-//   getContentLength(inputs[i]);
-// }
+// Note: If you encounter a certificate error, please try again because of network reasons
+// Expected value: [60941, 9508, 82531, 4142, 83994]
 getContentLength(inputs).then((res) => {
   console.log(res);
 });
+
 function getContentLength(inputs) {
   const promises = inputs.map(
     (url) =>
