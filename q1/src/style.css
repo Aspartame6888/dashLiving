@@ -1,3 +1,22 @@
 body {
   font-family: Lato;
 }
+.ant-fullcalendar-selected-day .ant-fullcalendar-value,
+.ant-fullcalendar-month-panel-selected-cell .ant-fullcalendar-value {
+  color: red !important;
+  background-color: white;
+  font-weight: bold;
+}
+.ant-fullcalendar-header {
+  display: none;
+}
+
+.ant-fullcalendar td {
+  border: 1px solid;
+}
+
+.ant-fullcalendar-column-header .ant-fullcalendar-column-header-inner {
+  background-color: #ccc;
+  border: 1px solid;
+  font-weight: bold;
+}

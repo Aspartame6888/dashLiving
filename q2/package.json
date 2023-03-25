@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.26.19",
     "react": "16.1.1",
-    "redux": "3.7.2",
     "react-dom": "16.1.1",
-    "react-redux": "5.0.6"
+    "react-redux": "5.0.6",
+    "redux": "3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -16,5 +17,17 @@
   },
   "devDependencies": {
     "react-scripts": "latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
