@@ -5,49 +5,38 @@ import { connect, Provider } from "react-redux";
 import { Progress } from "antd";
 import "antd/dist/antd.css";
 
-let initState = { count: 0 };
-const countReducer = (state = initState, action) => {
-  const newState = JSON.parse(JSON.stringify(state));
+const countReducer = (state = { count: 0 }, action) => {
   switch (action.type) {
     // Implement the increment, decrement and reset logic here
+
     case "INCREMENT":
-      newState.count = newState.count + 5;
-      if (newState.count >= 100) {
-        return { count: 100 };
-      }
-      return newState;
+      return { count: Math.min(state.count + 10, 100) };
     case "DECREMENT":
-      newState.count = newState.count - 5;
-      if (newState.count <= 0) {
-        return { count: 0 };
-      }
-      return newState;
+      return { count: Math.max(state.count - 10, 0) };
     case "RESET":
-      return initState;
+      return { count: 0 };
     default:
-      return initState;
+      return state;
   }
 };
-
 const reducers = combineReducers({
   counter: countReducer,
 });
-
 const actions = {
-  increment: () => store.dispatch({ type: "INCREMENT" }),
-  decrement: () => store.dispatch({ type: "DECREMENT" }),
-  reset: () => store.dispatch({ type: "RESET" }),
+  increment: () => ({ type: "INCREMENT" }),
+  decrement: () => ({ type: "DECREMENT" }),
+  reset: () => ({ type: "RESET" }),
 };
 
 const store = createStore(reducers);
 
 class App extends Component {
   render() {
-    console.log(store.getState());
+    const { count } = this.props;
     return (
       <div>
         {/* Implement your text box and progress bar here*/}
-        <h1>Value: {store.getState().counter.count}</h1>
+        <h1>Value: {count}</h1>
         <div>
           {" "}
           <Progress
@@ -55,7 +44,7 @@ class App extends Component {
               "0%": "yellow",
               "100%": "yellow",
             }}
-            percent={store.getState().counter.count}
+            percent={count}
           />
         </div>
         <div
