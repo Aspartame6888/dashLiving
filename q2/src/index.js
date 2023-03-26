@@ -36,9 +36,8 @@ class App extends Component {
     return (
       <div>
         {/* Implement your text box and progress bar here*/}
-        <h1>Value: {count}</h1>
+        {count === 0 ? <h1>Value: {count}</h1> : <h1>Value: {count}%</h1>}
         <div>
-          {" "}
           <Progress
             strokeColor={{
               "0%": "yellow",
